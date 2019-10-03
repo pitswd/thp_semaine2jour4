@@ -1,25 +1,23 @@
-def ask_height
-    puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?"
+def wtf_pyramid
+    puts "Bonjour, combien d'étages veux-tu dans ta pyramide ? Nombre impair seulement."
     print ">"
-    height = gets.to_i
-    return height
+    input = gets.chomp.to_i
+    if (input%2==0)
+        puts "Nombre impair SEULEMENT !"
+        wtf_pyramid
+    else
+        1.upto(input/2+1) do |i|
+            spaces = " " * (input-i)
+            dots   = "#" * (i*2-1)
+            puts spaces + dots
+        end
+
+        0.upto(input/2+1) do |i|
+            dots = "#" * (input/2-i) * 2
+            spaces = " " * (i + input/2+1)
+            puts spaces + dots
+        end
+    end
 end
 
-def full_pyramid (height)
-    height.times do |i|
-      puts ' ' * (height - i) + '#' * (2 * i + 1)
-    end
-  end
-
-def wtf_pyramid (height)
-    height.times do |i|
-      puts ' ' * (height - i) + '#' * (2 * i + 1)
-    end
-  end
-
-def perform
-    height = ask_height
-    wtf_pyramid (height)
-end
-
-perform
+wtf_pyramid
