@@ -19,6 +19,11 @@ end
 
 def welcome_screen
     puts "Bienvenue dans le coffre secret"
+    puts "."
+    puts "."
+    puts "."
+    puts "Bip Boop"
+
 end
 
 def perform 
